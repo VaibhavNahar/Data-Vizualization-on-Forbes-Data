@@ -1,39 +1,5 @@
-setwd("C:\\Users\\Windows 10\\Desktop\\jigsaw academy vaibhav")
-datasets::Orange
-data(Orange)
-library(ggplot2)
-P = ggplot(Orange,aes(x=age,y=circumference))
-P+geom_point(aes(color=Tree))
-str( Orange)
-library(sp)
-data(meuse)
-
-
-# ------non graded casestudy------
-
-F = read.csv("dataF.csv",sep=',',header=TRUE)
-str(F)
-summary(F)
-round(2.108,digits = 2)
-library(dplyr)
-tech = F%>%filter(Industry=="Technology",)
-remove(p)
-p = ggplot(tech,aes(Company.Advertising,Brand.Revenue))
-p+geom_point(aes(color=Brand,size=Brand.Value)) + xlab("Company Advertising in Billions") + ylab("Brand Value is billions") + scale_size(range = c(2,4), breaks = c(30,60,100),name="Brand Value") +ggtitle("Technology") +geom_text(aes(label=Brand),vjust=1,hjust=1)+guides(color=FALSE)+theme_light()+theme(legend.key=element_rect(fill = "light blue", color = "black"))
-
-lux = F%>%filter(Industry=="Luxury",)
-q = ggplot(lux,aes(Company.Advertising,Brand.Revenue))
-q+geom_point(aes(color=Brand,size=Brand.Value))+xlab("Company Adverstising In Billions")+ylab("Brand Revenue in Billions")+ggtitle("Luxury")+scale_size(range = c(1,3),breaks = c(10,28.1),name="Brand Value")+geom_text(aes(label=Brand),vjust=1,hjust=0.5)+theme_light()+theme(legend.key = element_rect(fill = "green",color = "brown"))+guides(color=FALSE)+scale_x_continuous(breaks=seq(0,6,0.1))
-
-Fin = F%>%filter(Industry=="Financial Services",)
-f = ggplot(Fin,aes(Company.Advertising,Brand.Revenue))
-f+geom_point(aes(color=Brand,size=Brand.Value))+xlab("Company Advertising")+ylab("brand Value")+ggtitle("Financial Services")+scale_size(range = c(1,3),breaks = c(8,12,24),name="Brand value")+geom_text(aes(label=Brand),hjust=0.8,vjust=0.8)+theme_light()+theme(legend.key = element_rect(fill = "red",colour = "yellow"))+guides(color=FALSE)+scale_x_continuous(breaks = seq(0,4,0.5))+scale_y_continuous(breaks = seq(0,100,10))
-  
 
      
-
-
-
 #-------------Graded assignbment---------#
 getwd()
 
@@ -145,8 +111,3 @@ ggplot(auto,aes(x=Company.Advertising,y=Brand.Revenue,label=Brand))+geom_point(a
   scale_size_continuous(name="Brand Value $ (Billions)",breaks=c(6.2,20,37.8))+guides(color=F)+scale_x_continuous(breaks=seq(0.8,5.5,0.1))+
   scale_y_discrete(breaks=seq(40,170,10))+theme(panel.grid.major=element_line("grey"))+theme_bw()+theme(panel.border=element_rect(color="grey",fill=NA))+
   theme(plot.title=element_text(size=25))+theme(plot.title=element_text(face="bold"))+theme(panel.grid.minor=element_line("grey"))
-
-
-
-
-F
